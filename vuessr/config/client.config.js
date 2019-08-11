@@ -5,6 +5,7 @@ const baseConfig = require('./base.config.js')
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 const isDev = process.env.NODE_ENV === "development";
 const ExtractTextPlugin = require('extract-css-chunks-webpack-plugin')
+const path = require('path')
 
 module.exports = merge(baseConfig, {
     entry: './entry-client.js',
@@ -42,4 +43,9 @@ module.exports = merge(baseConfig, {
             }
         }
     },
+    resolve: {
+        alias: {
+            $http: path.resolve(__dirname, '../utils/http-client.js')
+        }
+    }
 })

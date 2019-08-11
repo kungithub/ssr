@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals')
 const baseConfig = require('./base.config.js')
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin')
+const path = require('path')
 
 module.exports = merge(baseConfig, {
   // 将 entry 指向应用程序的 server entry 文件
@@ -51,5 +52,10 @@ module.exports = merge(baseConfig, {
       'process.env.VUE_ENV': '"client"'
     }),
     new VueSSRServerPlugin()
-  ]
+  ],
+  resolve: {
+    alias: {
+      $http: path.resolve(__dirname, '../utils/http-server.js')
+    }
+  }
 })

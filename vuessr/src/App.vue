@@ -7,12 +7,15 @@
 
 <script>
 import "./assets/style/common.css";
-import head from './components/Head.vue';
+import head from "./components/Head.vue";
 
 export default {
   name: "app",
   components: {
     vhead: head
+  },
+  mounted() {
+    document.title = "1213";
   }
 };
 </script>

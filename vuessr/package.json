@@ -8,8 +8,10 @@
     "release": "webpack --config config/client.config.js --progress --mode production && webpack --config config/server.config.js --progress --mode production "
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "core-js": "^2.6.5",
     "koa": "^2.7.0",
+    "koa-router": "^7.4.0",
     "koa-static-server": "^1.4.0",
     "koa-webpack-dev-middleware": "^2.0.2",
     "koa-webpack-hot-middleware": "^1.0.3",
