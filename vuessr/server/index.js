@@ -17,7 +17,7 @@ app.use(async (ctx, next) => {
         if (!build.renderer) {
             return ctx.body = "构筑中……";
         }
-        console.log(ctx.request.url);
+
         let str = await build.renderer.renderToString(
             {
                 url: ctx.request.url,
@@ -26,10 +26,12 @@ app.use(async (ctx, next) => {
         ctx.set('Content-Type', 'text/html; charset=utf-8')
     } catch (e) {
         console.error(e);
-        ctx.body = "ERROR";
+        let redirect = '/error';
+        if (e.code === 404) redirect += '?code=404';
+        ctx.redirect(redirect);
     }
 });
 
 app.listen(8080, () => {
-    console.log('listen 8080');
+    console.log('server listened!');
 });

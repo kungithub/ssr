@@ -25,7 +25,7 @@ header {
   background: #fff;
   .head-content {
     margin: 0 auto;
-    width: 980px;
+    width: 1024px;
     .head-left {
       float: left;
     }

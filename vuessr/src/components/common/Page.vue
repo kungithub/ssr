@@ -1,8 +1,24 @@
 <template>
   <div class="page-container">
-    <section>第一页</section>
-    <section v-for="(i,index) in pageCount" :key="i">{{index+1}}</section>
-    <section>最后一页</section>
+    <section>
+      <router-link :to="{ name: url, params: { pageIndex: 1 } }">
+        第一页
+      </router-link>
+    </section>
+    <section
+      v-for="(i, ix) in pageCount"
+      :key="i"
+      :class="{ current: pageIndex == ix + 1 }"
+    >
+      <router-link :to="{ name: url, params: { pageIndex: ix + 1 } }">
+        {{ ix + 1 }}
+      </router-link>
+    </section>
+    <section>
+      <router-link :to="{ name: url, params: { pageIndex: pageCount.length } }">
+        最后一页
+      </router-link>
+    </section>
   </div>
 </template>
 
@@ -12,7 +28,8 @@ export default {
   props: {
     pageSize: { default: 10 },
     pageIndex: { default: 1 },
-    count: { default: 100 }
+    count: { default: 100 },
+    url: { default: "" }
   },
   computed: {
     pageCount() {
@@ -24,15 +41,29 @@ export default {
       });
     }
   },
-  mounted() {
-    // alert("xxx" + window.title);
-  },
-  created() {
-    // alert("哈哈哈哈哈");
-    console.log(document.title);
-  }
+  mounted() {},
+  created() {}
 };
 </script>
 
-<style>
+<style lang="scss">
+.page-container {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  .current {
+    color: #fff;
+    background: #33a3ff;
+  }
+  section {
+    padding: 5px 10px;
+    border: solid 1px #f3f3f3;
+    border-radius: 5px;
+    margin: 5px;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}
 </style>

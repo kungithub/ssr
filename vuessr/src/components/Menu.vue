@@ -56,7 +56,7 @@ export default {
   display: flex;
   height: 100px;
   margin: 0 auto;
-  width: 980px;
+  width: 1024px;
   align-items: center;
   .menu-left {
     width: 370px;

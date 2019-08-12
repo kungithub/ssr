@@ -15,7 +15,7 @@ export default {
     vhead: head
   },
   mounted() {
-    document.title = "1213";
+    
   }
 };
 </script>
