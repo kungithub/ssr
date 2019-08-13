@@ -1,6 +1,8 @@
 <template>
   <div>
-    注册
+    <h1>
+      <center>注册</center>
+    </h1>
   </div>
 </template>
 

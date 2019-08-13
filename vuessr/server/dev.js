@@ -16,13 +16,11 @@ module.exports = function () {
         // ssr 编译好的路径
         serverBundle = require('../dist/vue-ssr-server-bundle.json')
         clientManifest = require('../dist/vue-ssr-client-manifest.json')
-
-        renderer = createBundleRenderer(serverBundle, {
+        build.renderer = createBundleRenderer(serverBundle, {
             runInNewContext: false, // 推荐
             template,
             clientManifest
         });
-        build.renderer = renderer;
     } else {
         const webpack = require('webpack')
         const MFS = require('memory-fs')
@@ -44,12 +42,11 @@ module.exports = function () {
 
             console.log('client update...')
             if (serverBundle) {
-                renderer = createBundleRenderer(serverBundle, {
+                build.renderer = createBundleRenderer(serverBundle, {
                     runInNewContext: false, // 推荐
                     template,
                     clientManifest
                 });
-                build.renderer = renderer;
             }
         })
 
@@ -68,12 +65,11 @@ module.exports = function () {
             serverBundle = JSON.parse(mfs.readFileSync(bundlePath, 'utf-8'))
             console.log('server update...')
             if (clientManifest) {
-                renderer = createBundleRenderer(serverBundle, {
+                build.renderer = createBundleRenderer(serverBundle, {
                     runInNewContext: false, // 推荐
                     template,
                     clientManifest
                 });
-                build.renderer = renderer;
             }
         })
     }

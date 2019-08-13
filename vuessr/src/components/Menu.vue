@@ -10,18 +10,8 @@
             <router-link to="/index" :class="active('index')">首页</router-link>
           </li>
           <li>
-            <router-link to="/product" :class="active('product')"
-              >产品介绍</router-link
-            >
-          </li>
-          <li>
             <router-link to="/info" :class="active('info')"
-              >信息披露</router-link
-            >
-          </li>
-          <li>
-            <router-link to="/help" :class="active('help')"
-              >帮助中心</router-link
+              >热门信息</router-link
             >
           </li>
         </ul>
@@ -58,6 +48,7 @@ export default {
   margin: 0 auto;
   width: 1024px;
   align-items: center;
+  justify-content: space-around;
   .menu-left {
     width: 370px;
     img {
@@ -68,8 +59,10 @@ export default {
     flex: 1;
     ul {
       display: flex;
+      justify-content: flex-end;
       li {
-        flex: 1;
+        padding-left: 20px;
+        font-size: 18px;
         text-align: center;
         a {
           text-decoration: none;

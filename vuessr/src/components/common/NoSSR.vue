@@ -1,15 +1,16 @@
 <template>
-  <div :is="component">
+  <component :is="component">
     <slot></slot>
-  </div>
+  </component>
 </template>
 
 <script>
-import tmp from "./NoSSR_TMP.vue";
-
 export default {
+  props: {
+    path: String
+  },
   components: {
-    tmp
+    tmp: () => import("./NoSSR_TMP.vue")
   },
   data() {
     return {

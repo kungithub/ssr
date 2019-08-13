@@ -1,6 +1,8 @@
 <template>
   <div>
-    登录
+    <h1>
+      <center>登录</center>
+    </h1>
   </div>
 </template>
 

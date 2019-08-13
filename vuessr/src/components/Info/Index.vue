@@ -2,7 +2,7 @@
   <div>
     <vmenu type="info" />
     <div class="info-container">
-      <div class="info-title">热门消息</div>
+      <div class="info-title">热门信息</div>
       <ul class="info-content">
         <li v-for="item in list" :key="item.title">
           <section class="info-content-r">{{ item.publishDate }}</section>
@@ -20,13 +20,11 @@ import page from "../common/Page.vue";
 // 单独打包chunk
 import news from "../../store/modules/news.js";
 import { mapState } from "vuex";
-import NoSSR from "../common/NoSSR.vue";
 
 export default {
   components: {
     vmenu: menu,
-    vpage: page,
-    NoSSR
+    vpage: page
   },
   data() {
     return {

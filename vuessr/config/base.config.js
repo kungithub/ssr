@@ -3,6 +3,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ExtractTextPlugin = require('extract-css-chunks-webpack-plugin')
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -83,7 +84,9 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
-
+    new CopyWebpackPlugin([
+      { from: path.join(__dirname, '../public'), to: path.join(__dirname, '../dist') }
+    ])
   ],
   performance: {
     hints: process.env.NODE_ENV === 'production' ? 'warning' : false

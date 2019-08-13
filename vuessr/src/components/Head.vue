@@ -1,7 +1,10 @@
 <template>
   <header>
     <div class="head-content">
-      <section class="head-left">客服电话：400-6868618 | 了解友金所</section>
+      <section class="head-left">
+        客服电话：400-0000000 |
+        <router-link to="/"> 首页</router-link>
+      </section>
       <section class="head-right">
         <router-link to="/user/login"> 登录</router-link>
         |

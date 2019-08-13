@@ -3,7 +3,9 @@ const app = new Koa();
 const path = require('path');
 const staticServer = require('koa-static-server');
 const dev = require('./dev.js');
-const router = require('./routers')(app);
+require('./routers')(app);
+const config = require('./config');
+const cache = require('./cache');
 
 // 解析器
 let build = dev();
@@ -17,13 +19,9 @@ app.use(async (ctx, next) => {
         if (!build.renderer) {
             return ctx.body = "构筑中……";
         }
-
-        let str = await build.renderer.renderToString(
-            {
-                url: ctx.request.url,
-            });
-        ctx.body = str;
-        ctx.set('Content-Type', 'text/html; charset=utf-8')
+        let out = await cache(ctx.request.url, build.renderer);
+        ctx.set('Content-Type', 'text/html; charset=utf-8');
+        ctx.body = out;
     } catch (e) {
         console.error(e);
         let redirect = '/error';
@@ -32,6 +30,6 @@ app.use(async (ctx, next) => {
     }
 });
 
-app.listen(8080, () => {
-    console.log('server listened!');
+app.listen(config.port, () => {
+    console.log(`server ${config.port} listened!`);
 });

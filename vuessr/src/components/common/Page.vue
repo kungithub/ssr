@@ -15,7 +15,7 @@
       </router-link>
     </section>
     <section>
-      <router-link :to="{ name: url, params: { pageIndex: pageCount.length } }">
+      <router-link :to="{ name: url, params: { pageIndex: pageCount } }">
         最后一页
       </router-link>
     </section>
@@ -33,12 +33,9 @@ export default {
   },
   computed: {
     pageCount() {
-      return Array.from({
-        length:
-          this.count % this.pageSize == 0
-            ? this.count / this.pageSize
-            : Math.floor(this.count / this.pageSize) + 1
-      });
+      return this.count % this.pageSize == 0
+        ? this.count / this.pageSize
+        : Math.floor(this.count / this.pageSize) + 1;
     }
   },
   mounted() {},
