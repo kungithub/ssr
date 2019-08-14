@@ -81,8 +81,8 @@ module.exports = {
     new ExtractTextPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: '[name][hash].css',
+      chunkFilename: '[id][hash].css',
     }),
     new CopyWebpackPlugin([
       { from: path.join(__dirname, '../public'), to: path.join(__dirname, '../dist') }

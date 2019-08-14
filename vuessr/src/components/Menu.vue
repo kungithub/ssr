@@ -3,6 +3,7 @@
     <div class="menu-div">
       <section class="menu-left">
         <img src="~img/logo.png" />
+        VUE | SSR
       </section>
       <section class="menu-right">
         <ul>
@@ -52,7 +53,8 @@ export default {
   .menu-left {
     width: 370px;
     img {
-      width: 100%;
+      height: 80px;
+      vertical-align: middle;
     }
   }
   .menu-right {

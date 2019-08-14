@@ -8,8 +8,11 @@
         </el-carousel-item>
       </el-carousel>
     </div>
-
-    <NoSSR> </NoSSR>
+    <NoSSR>
+      <div id="editor">
+        <mavon-editor style="height: 100%"></mavon-editor>
+      </div>
+    </NoSSR>
   </div>
 </template>
 
@@ -18,16 +21,20 @@ import menu from "./Menu.vue";
 import NoSSR from "./common/NoSSR.vue";
 import { Carousel, CarouselItem } from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
+import { mavonEditor } from "mavon-editor";
+import "mavon-editor/dist/css/index.css";
 
 export default {
   components: {
     vmenu: menu,
     NoSSR,
     [Carousel.name]: Carousel,
-    [CarouselItem.name]: CarouselItem
+    [CarouselItem.name]: CarouselItem,
+    mavonEditor
   },
   data() {
     return {
+      content: "editor",
       value: new Date(),
       urls: [
         "https://fuss10.elemecdn.com/a/3f/3302e58f9a181d2509f3dc0fa68b0jpeg.jpeg",
@@ -46,6 +53,11 @@ export default {
 <style lang="scss">
 .index-swipe {
   width: 1024px;
+  margin: 20px auto;
+}
+#editor {
+  width: 1024px;
+  height:600px;
   margin: 20px auto;
 }
 </style>

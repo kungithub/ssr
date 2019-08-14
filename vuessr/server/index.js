@@ -19,7 +19,7 @@ app.use(async (ctx, next) => {
         if (!build.renderer) {
             return ctx.body = "构筑中……";
         }
-        let out = await cache(ctx.request.url, build.renderer);
+        let out = await cache(ctx.request, build.renderer);
         ctx.set('Content-Type', 'text/html; charset=utf-8');
         ctx.body = out;
     } catch (e) {

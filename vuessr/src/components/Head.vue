@@ -2,7 +2,7 @@
   <header>
     <div class="head-content">
       <section class="head-left">
-        客服电话：400-0000000 |
+        一个帮助开发者成长的社区 |
         <router-link to="/"> 首页</router-link>
       </section>
       <section class="head-right">

@@ -15,9 +15,12 @@ export default context => {
             // 对所有匹配的路由组件调用 `asyncData()`
             Promise.all(matchedComponents.map(Component => {
                 if (Component.asyncData) {
+                    // 注入request
+                    // store.$request = context;
                     return Component.asyncData({
                         store,
-                        route: router.currentRoute
+                        route: router.currentRoute,
+                        request: context
                     })
                 }
             })).then(() => {

@@ -44,9 +44,12 @@ export default {
       return this.$store.state.news.count;
     }
   },
-  asyncData({ store, route }) {
+  asyncData({ store, route, request }) {
     store.registerModule("news", news);
-    return store.dispatch("news/fetchList", route.params.pageIndex || 1);
+    return store.dispatch("news/fetchList", {
+      pageIndex: route.params.pageIndex || 1,
+      request
+    });
   },
   destroyed() {
     // todo ：为什么第一次加载的时候 news 没有注册上去？

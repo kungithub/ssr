@@ -30,7 +30,7 @@ module.exports = merge(baseConfig, {
     ],
     optimization: {
         "runtimeChunk": "single",
-        "minimize": false,
+        "minimize": !isDev,
         "splitChunks":
         {
             "chunks": "all",

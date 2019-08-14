@@ -1,16 +1,17 @@
 <template>
-  <component :is="component">
-    <slot></slot>
-  </component>
+  <div>
+    <component :is="component">
+      <slot></slot>
+    </component>
+  </div>
 </template>
 
 <script>
+import NoSSRTMP from "./NoSSR_TMP.vue";
+
 export default {
-  props: {
-    path: String
-  },
   components: {
-    tmp: () => import("./NoSSR_TMP.vue")
+    NoSSRTMP
   },
   data() {
     return {
@@ -18,7 +19,7 @@ export default {
     };
   },
   mounted() {
-    this.component = "tmp";
+    this.component = "NoSSRTMP";
   }
 };
 </script>

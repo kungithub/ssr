@@ -7,8 +7,8 @@ export default {
         count: 0
     },
     actions: {
-        fetchList({ commit }, pageIndex) {
-            return http.post(`/api/news/list/${pageIndex}`).then((data) => {
+        fetchList({ commit }, { pageIndex, request }) {
+            return http.post(`/api/news/list/${pageIndex}`, request).then((data) => {
                 commit('setList', data.data);
             });
         }
