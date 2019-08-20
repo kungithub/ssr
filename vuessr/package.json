@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
+    "dev": "cross-env NODE_ENV=development nodemon --watch server/ ./server/index.js ",
     "build": "cross-env NODE_ENV=development webpack --config config/client.config.js --progress --mode development && webpack --config config/server.config.js --progress --mode development ",
     "release": "cross-env NODE_ENV=production webpack --config config/client.config.js --progress --mode production && webpack --config config/server.config.js --progress --mode production "
   },
@@ -44,6 +44,7 @@
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",

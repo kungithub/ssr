@@ -3,7 +3,7 @@
     <vmenu tpye="index" />
     <div class="index-swipe">
       <el-carousel trigger="click">
-        <el-carousel-item v-for="item in 4" :key="item">
+        <el-carousel-item v-for="item in 6" :key="item">
           <h3 class="small"><img style="width:100%;" :src="urls[item]" /></h3>
         </el-carousel-item>
       </el-carousel>

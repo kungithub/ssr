@@ -13,7 +13,9 @@ Vue.mixin({
             asyncData({
                 store: this.$store,
                 route: to
-            }).then(next).catch(next)
+            }).then(next).catch(()=>{
+                router.push('/error');
+            })
         } else {
             next()
         }
@@ -54,7 +56,9 @@ router.onReady(() => {
 
             // 停止加载指示器(loading indicator)
             next()
-        }).catch(next)
+        }).catch(()=>{
+            router.push('/error');
+        })
     })
 
     app.$mount('#app')
