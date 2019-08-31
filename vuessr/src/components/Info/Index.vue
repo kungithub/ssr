@@ -45,7 +45,8 @@ export default {
     }
   },
   asyncData({ store, route, request }) {
-    store.registerModule("news", news);
+    if (!store._modules.root._children["news"])
+      store.registerModule("news", news);
     return store.dispatch("news/fetchList", {
       pageIndex: route.params.pageIndex || 1,
       request
@@ -55,8 +56,7 @@ export default {
     // todo ：为什么第一次加载的时候 news 没有注册上去？
     if (this.$store._modules.root._children["news"])
       this.$store.unregisterModule("news");
-  },
-  mounted() {}
+  }
 };
 </script>
 

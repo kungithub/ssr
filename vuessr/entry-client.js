@@ -22,7 +22,7 @@ Vue.mixin({
     }
 })
 
-router.afterEach((to, from, next) => {
+router.afterEach((to) => {
     document.title = to.meta.title;
 });
 
