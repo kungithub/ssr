@@ -17,7 +17,7 @@
     "koa-static-server": "^1.4.0",
     "mavon-editor": "^2.7.5",
     "npm": "^6.10.3",
-    "redis": "^2.8.0",
+    "redis": "^3.1.1",
     "redis-lru": "^0.6.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.7",
